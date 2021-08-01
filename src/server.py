@@ -28,4 +28,4 @@ def token():
 
 if __name__ == "__main__":
     ca_path = "/Users/janisax/git/nifi-environment/certs"
-    app.run(debug=True, port=5005)
+    app.run(debug=True, port=5005, host="0.0.0.0")
