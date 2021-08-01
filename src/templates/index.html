@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NiFi REST-API access token provider</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>API access token generator</h1>
 
-</head>
-<body>
-    <p>Hello world</p>
-</body>
-</html>
+    <div>
+      <form action="">
+        <input
+          type="url"
+          name="nifi-url"
+          id="nifi-url"
+          placeholder="https://my-nifi:8443/nifi-api/"
+          pattern="https://.*"
+          size="30"
+        />
+        <input
+          type="button"
+          value="Check connection"
+          id="check_btn"
+          onclick="check_connection()"
+        />
+      </form>
+    </div>
+    <div>
+      <form action="">
+        <input type="text" id="username" placeholder="Username" />
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password"
+        />
+        <input type="button" value="Get token" onclick="request_token()" />
+      </form>
+    </div>
+  </body>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  </html>
