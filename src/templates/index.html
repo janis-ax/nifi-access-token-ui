@@ -9,41 +9,42 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='css/style.css') }}"
     />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+    </style>
   </head>
   <body>
-    <h1>API access token generator</h1>
+    <h1 id="headline">API access token generator</h1>
 
-    <div>
-      <form action="">
-        <input
-          type="url"
-          name="nifi-url"
-          id="nifi-url"
-          placeholder="https://my-nifi:8443/nifi-api/"
-          pattern="https://.*"
-          size="30"
-        />
-        <input
-          type="button"
-          value="Check connection"
-          id="check_btn"
-          onclick="check_connection()"
-        />
-      </form>
+    <div class="container" id="check_container">
+      <h2>Connection test</h2>
+      <input
+        type="url"
+        name="nifi-url"
+        id="nifi-url"
+        placeholder="https://my-nifi:8443/nifi-api/"
+        pattern="https://.*"
+        size="30"
+      />
+      <input
+        type="button"
+        value="Check connection"
+        id="check_btn"
+        onclick="check_connection()"
+      />
     </div>
-    <div>
-      <form action="">
-        <input type="text" id="username" placeholder="Username" />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Password"
-        />
-        <input type="button" value="Get token" onclick="request_token()" />
-      </form>
+    <div class="container" id="token_container">
+      <h2>Request token</h2>
+      <input type="text" id="username" placeholder="Username" />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="Password"
+      />
+      <input type="button" value="Get token" onclick="request_token()" />
     </div>
   </body>
 
   <script src="{{ url_for('static', filename='js/main.js') }}"></script>
-  </html>
+</html>
